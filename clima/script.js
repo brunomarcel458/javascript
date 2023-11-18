@@ -33,7 +33,7 @@ function showInfo(json){
     document.querySelector('.resultado').style.display = 'block';
     document.querySelector('.titulo').innerHTML = `${json.name}, ${json.country}`;
     document.querySelector('.tempInfo').innerHTML = `${json.temp}`;
-    document.querySelector('.ventoInfo').innerHTML = `$`;
+    document.querySelector('.ventoInfo').innerHTML = `${json.wind.speed}`;
 }
 
 function showWarning(msg){
