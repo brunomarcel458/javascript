@@ -20,6 +20,7 @@ document.querySelector('.busca').addEventListener('submit', async (event)=>{
                 windAngle: json.wind.deg
             });
         } else {
+            clearInfo();
             showWarning('Não encontramos esta cidade.')
         }
 
@@ -35,6 +36,12 @@ function showInfo(json){
     document.querySelector('.tempInfo').innerHTML = `${json.temp} <sup>°C</sup>`;
     document.querySelector('.ventoInfo').innerHTML = `${json.windSpeed} <span>km/h</span>`;
     document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
+    document.querySelector('.ventoPonto').style.transform = `rotate(${json.windAngle-90}deg)`;
+}
+
+function clearInfo(){
+    showWarning('');
+    document.querySelector('.resultado').style.display = 'none';
 }
 
 function showWarning(msg){
