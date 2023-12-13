@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<style>
+    table,
+        td {
+            border: 1px solid #333;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+
+</style>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th colspan="3">The Calculator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>5</td>
+            <td >8</td>
+            <td>9</td>
+          </tr>
+        </tbody>
+    </table>
+    
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">Operator:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+</td>
+                <td>-</td>
+                <td>x</td>
+                <td>/</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="container-result">
+        <span class="result">Result: </span>
+        <span class="result-value"></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
