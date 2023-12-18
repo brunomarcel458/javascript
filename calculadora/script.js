@@ -10,23 +10,28 @@ function generateId(){
 generateId();
 
 //add event to click on numbers
-function clickOnNumber(clickedNumber) {
-    clickedNumber = document.querySelectorAll('td');
-    clickedNumber.forEach((number)=> {
-        number.addEventListener('click', ()=> {
-            console.log(number.id);
-        })
-    })
-}
 
-clickOnNumber();
+var clickedNumber = document.querySelectorAll('.numbers-click td');
+clickedNumber.forEach((number)=> {
+    number.addEventListener('click', ()=> {
+        console.log( calcularSoma( parseInt(number.textContent)) );
+    })
+})
 
 //add event to click on operators
-function clickOnOperator(clickedOperator) {
-    clickedOperator = document.querySelectorAll('td');
-    clickedOperator.forEach((operator)=> {
-        operator.addEventListener('click', ()=> {
-            console.log(operator.id);
-        })
+var operator = document.querySelectorAll('.operators-click td');
+operator.forEach((op)=> {
+    op.addEventListener('click', ()=>{
+        if(op.id == 'soma'){
+            console.log(op.textContent);
+        }
     })
-};
+})
+
+function calcularSoma(x) {
+    soma = x + 3;
+    // console.log(clickOnNumber())
+    return soma;
+}
+
+calcularSoma();
