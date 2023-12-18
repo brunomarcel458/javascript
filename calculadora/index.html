@@ -19,7 +19,7 @@
 
 </style>
 <body>
-    <table>
+    <table class="numbers">
         <thead>
           <tr>
             <th colspan="3">The Calculator</th>
@@ -43,7 +43,6 @@
             </tr>
         </tbody>
     </table>
-    
     <table>
         <thead>
             <tr>
@@ -59,9 +58,13 @@
             </tr>
         </tbody>
     </table>
-
-
-    <div class="container-result">
+    
+    <div class="calculation-and-result">
+        <div class="number-calculation">
+            <span class="first-number">x</span>
+            <span class="current-operator">-</span>
+            <span class="second-number">y</span>
+        </div>
         <span class="result">Result: </span>
         <span class="result-value"></span>
     </div>
