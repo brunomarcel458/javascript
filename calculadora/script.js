@@ -4,11 +4,12 @@
 var numbersClicked = document.querySelector('.numbers-click');
 var operatorClicked = document.querySelector('.operators-click');
 var firstNumber = document.querySelector('.first-number');
-var currentOperator = document.querySelector('.current-operator');
+var showOperator = document.querySelector('.current-operator');
 var lastNumber = document.querySelector('.last-number');
 
 //function to get click number events
 var currentNumber = "";
+var operator = "";
 
 numbersClicked.addEventListener('click', (e)=>{
     currentNumber = currentNumber + e.target.textContent;
@@ -17,3 +18,8 @@ numbersClicked.addEventListener('click', (e)=>{
 })
 
 //function to get click operator events
+
+operatorClicked.addEventListener('click', (op)=>{
+    showOperator.textContent = op.target.textContent;
+    console.log(op.target.textContent);
+})
