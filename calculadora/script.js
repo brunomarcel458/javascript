@@ -1,55 +1,19 @@
-//create dynamic ID
-function generateId(){
-    var numbers = document.querySelectorAll('.numbers td');
-    lenghtNumbers = numbers.length;
-    for( n=0; n < lenghtNumbers; n++ ){
-        numbers[n].id = "item_" + (n + 1);
-    }
-}
+//Get values that will keep always working:
+//Numbers that will be clicked, Operators that will be clicked, Numbers that will be showed and results
 
-generateId();
+var numbersClicked = document.querySelector('.numbers-click');
+var operatorClicked = document.querySelector('.operators-click');
+var firstNumber = document.querySelector('.first-number');
+var currentOperator = document.querySelector('.current-operator');
+var lastNumber = document.querySelector('.last-number');
 
-//add event to click on numbers
+//function to get click number events
+var currentNumber = "";
 
-// var clickedNumber = document.querySelectorAll('.numbers-click td');
-// clickedNumber.forEach((number)=> {
-//     number.addEventListener('click', ()=> {
-//         console.log( sumCalculate( parseInt(number.textContent)) );
-//     })
-// })
+numbersClicked.addEventListener('click', (e)=>{
+    currentNumber = currentNumber + e.target.textContent;
+    firstNumber.textContent = currentNumber;
+    console.log(e.target.textContent);
+})
 
-// //add event to click on operators
-// var operator = document.querySelectorAll('.operators-click td');
-// operator.forEach((op)=> {
-//     op.addEventListener('click', ()=>{
-//         if(op.id == 'soma'){
-//             console.log(op.textContent);
-//         }
-//     })
-// })
-
-// function sumCalculate(x) {
-//     sum = x + 3;
-//     // console.log(clickOnNumber())
-//     return sum;
-// }
-// sumCalculate();
-
-
-// function subtractionCalculate(x){
-//     subtraction = x - 3;
-//     return subtraction;
-// }
-
-// subtractionCalculate();
-
-function clickedOnNumber() {
-    var showNumberClicked = document.querySelector('.first-number');
-    var clickedNumber = document.querySelectorAll('.numbers-click td');
-    clickedNumber.forEach((number)=> {
-        number.addEventListener('click', ()=> {
-            showNumberClicked.innerHTML = showNumberClicked.innerHTML + number.textContent;
-            console.log(showNumberClicked.innerHTML);
-        })
-    })
-}
+//function to get click operator events
