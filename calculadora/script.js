@@ -3,23 +3,34 @@
 
 var numbersClicked = document.querySelector('.numbers-click');
 var operatorClicked = document.querySelector('.operators-click');
-var firstNumber = document.querySelector('.first-number');
+var firstNumberShow = document.querySelector('.first-number');
 var showOperator = document.querySelector('.current-operator');
-var lastNumber = document.querySelector('.last-number');
+var lastNumberShow = document.querySelector('.last-number');
 
 //function to get click number events
-var currentNumber = "";
+var firstNumber = "";
 var operator = "";
+var lastNumber = "";
 
-numbersClicked.addEventListener('click', (e)=>{
-    currentNumber = currentNumber + e.target.textContent;
-    firstNumber.textContent = currentNumber;
-    console.log(e.target.textContent);
-})
+function addNumberClick() {
+    numbersClicked.addEventListener('click', (e)=>{
+        if(operator == "") {
+            firstNumber = firstNumber + e.target.textContent;
+            firstNumberShow.textContent = firstNumber;
+            console.log(e.target.textContent);
+        }
+    })
+}
+addNumberClick();
 
 //function to get click operator events
 
-operatorClicked.addEventListener('click', (op)=>{
-    showOperator.textContent = op.target.textContent;
-    console.log(op.target.textContent);
-})
+function addOperatorClick() {
+    operatorClicked.addEventListener('click', (op)=>{
+        if(firstNumber !== ""){
+            showOperator.textContent = op.target.textContent;
+            console.log(op.target.textContent);
+        }
+    })
+}
+addOperatorClick();
