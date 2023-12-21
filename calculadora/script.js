@@ -4,8 +4,9 @@
 var numbersClicked = document.querySelector('.numbers-click');
 var operatorClicked = document.querySelector('.operators-click');
 var firstNumberShow = document.querySelector('.first-number');
-var showOperator = document.querySelector('.current-operator');
+var operatorShow = document.querySelector('.current-operator');
 var lastNumberShow = document.querySelector('.last-number');
+var clickResult = document.querySelector('#btn-result');
 
 //function to get click number events
 var firstNumber = "";
@@ -17,7 +18,10 @@ function addNumberClick() {
         if(operator == "") {
             firstNumber = firstNumber + e.target.textContent;
             firstNumberShow.textContent = firstNumber;
-            console.log(e.target.textContent);
+            // console.log(e.target.textContent);
+        } else {
+            lastNumber = lastNumber + e.target.textContent;
+            lastNumberShow.textContent = lastNumber;
         }
     })
 }
@@ -28,7 +32,8 @@ addNumberClick();
 function addOperatorClick() {
     operatorClicked.addEventListener('click', (op)=>{
         if(firstNumber !== ""){
-            showOperator.textContent = op.target.textContent;
+            operatorShow.textContent = op.target.textContent;
+            operator = operatorShow;
             console.log(op.target.textContent);
         }
     })
