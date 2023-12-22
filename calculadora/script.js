@@ -39,3 +39,40 @@ function addOperatorClick() {
     })
 }
 addOperatorClick();
+
+
+// Função para calcular o resultado com base nos números e operador atual
+function calculateResult() {
+    var result = 0;
+    var num1 = parseFloat(firstNumber);
+    var num2 = parseFloat(secondNumber);
+
+    switch (currentOperator) {
+      case "+":
+        result = num1 + num2;
+        break;
+      case "-":
+        result = num1 - num2;
+        break;
+      case "x":
+        result = num1 * num2;
+        break;
+      case "/":
+        result = num1 / num2;
+        break;
+    }
+
+    // Exibir o resultado na página
+    resultValue.textContent = result;
+
+    // Limpar as variáveis para a próxima operação
+    firstNumber = result.toString();
+    secondNumber = "";
+    firstNumberSpan.textContent = firstNumber;
+    secondNumberSpan.textContent = "";
+    currentOperatorSpan.textContent = "";
+  }
+
+  // Adicionar eventos de clique aos botões de números e operadores
+  addNumberClickEvent();
+  addOperatorClickEvent();
