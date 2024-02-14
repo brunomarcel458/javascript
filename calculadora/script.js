@@ -7,6 +7,7 @@ var firstNumberShow = document.querySelector('.first-number');
 var operatorShow = document.querySelector('.current-operator');
 var lastNumberShow = document.querySelector('.last-number');
 var clickResult = document.querySelector('#btn-result');
+var resultValue = document.querySelector('.result-value');
 
 //function to get click number events
 var firstNumber = "";
@@ -25,29 +26,28 @@ function addNumberClick() {
         }
     })
 }
-addNumberClick();
 
 //function to get click operator events
-
 function addOperatorClick() {
     operatorClicked.addEventListener('click', (op)=>{
         if(firstNumber !== ""){
             operatorShow.textContent = op.target.textContent;
             operator = operatorShow;
-            console.log(op.target.textContent);
+            if(lastNumber !== ""){
+              calculateResult();
+              alert('chegou')
+            }
         }
     })
 }
-addOperatorClick();
 
-
-// Função para calcular o resultado com base nos números e operador atual
+// functiion to calculate result based on current numbers and operator clicked
 function calculateResult() {
     var result = 0;
     var num1 = parseFloat(firstNumber);
-    var num2 = parseFloat(secondNumber);
+    var num2 = parseFloat(lastNumber);
 
-    switch (currentOperator) {
+    switch (operatorShow) {
       case "+":
         result = num1 + num2;
         break;
@@ -68,11 +68,12 @@ function calculateResult() {
     // Limpar as variáveis para a próxima operação
     firstNumber = result.toString();
     secondNumber = "";
-    firstNumberSpan.textContent = firstNumber;
-    secondNumberSpan.textContent = "";
-    currentOperatorSpan.textContent = "";
+    firstNumberShow.textContent = firstNumber;
+    lastNumberShow.textContent = "";
+    operatorShow.textContent = "";
   }
 
+  calculateResult();
   // Adicionar eventos de clique aos botões de números e operadores
-  addNumberClickEvent();
-  addOperatorClickEvent();
+  addNumberClick();
+  addOperatorClick();
